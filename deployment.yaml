@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scolarite-app-deployment   # Name of the deployment
+spec:
+  replicas: 2               # Number of instances of your app to run
+  selector:
+    matchLabels:
+      app: scolarite-app           # Label for identifying pods created by this deployment
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: my-app-container
+          image: "saraamas/scolarite:version1.0"  # Replace with your image name
+          ports:
+            - containerPort: 8080  # Replace with your app's port if necessary
